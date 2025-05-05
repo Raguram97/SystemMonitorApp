@@ -1,80 +1,65 @@
-# System Monitoring Console App
-Cross-platform console application in C# for monitoring system resources, and plugin support for logging, as well as API integration.
+# 🖥️ System Monitoring Console App
 
-# ⚙️ Features
-
-- Monitors:
-  - CPU utilization (%)
-  - RAM utilization (used / total MB)
-  - Disk utilization (used / total MB)
-- Plugin architecture:
-  - Simply extensible without altering core logic
-  - File Logger plugin
-- REST API plugin
--  `appsettings.json` configuration
--  Console-based with clean, live updates
--  Cross-platform architecture (Windows-first implementation)
+A cross-platform console application written in C# that monitors system resources and supports plugins for logging and API integration. Designed using clean architecture principles, it’s lightweight, extensible, and ideal for real-time system diagnostics.
 
 ---
 
-# How to Run
+## ⚙️ Features
 
-1. Install [.NET 6 SDK or later](https://dotnet.microsoft.com/en-us/download).
-2. Clone or extract the project:
-   git clone https://github.com/your-username/SystemMonitoring.git
-   cd SystemMonitoring
+### 🔍 System Resource Monitoring
+- **CPU Usage** – Real-time percentage of CPU consumption.
+- **RAM Usage** – Used and total memory in MB.
+- **Disk Usage** – Used and total disk space in MB.
 
-# Project Structure
-SystemMonitoringApp/
-├── Domain/             # Core interfaces and models
-├── Infrastructure/     # System metrics implementation
-├── Plugins/            # File logger and API plugin
-├── Program.cs          # App entry point
-├── appsettings.json    # Config file
-└── README.md
+### 🧩 Plugin Architecture
+- Modular and extensible design.
+- **File Logger Plugin** – Logs data to a `.txt` file.
+- **REST API Plugin** – Sends data as JSON to a configurable HTTP endpoint.
 
-# Notes
-CPU usage is supported for Windows through native .NET APIs.
-Clean extension of the architecture is supported for Linux monitoring.
-File logger plugin logs system information to a.txt file.
-API plugin posts JSON data over HTTP POST to a configurable URL.
+### 📁 Configuration
+- Centralized configuration using `appsettings.json`.
 
-# System Monitoring Console App
-A C# cross-platform console application for monitoring system resources. The application has support for plugins for logging and API integration, making it easy to extend and customize without altering the core logic.
+### 🧼 Clean Console UI
+- Live updates in an easy-to-read format.
 
-# Features
-System Resource Monitoring:
-	- CPU usage: Monitors percentage of CPU usage.
-	- RAM usage: Shows used and total memory in MB.
-	- Disk usage: Tracks disk usage (used and total in MB).
+### 🌐 Cross-Platform Ready
+- Windows-first implementation with a structure supporting Linux/macOS extensions.
 
-Plugin Architecture:
-	- Easy to extend by adding new plugins without altering core logic.
-	- File Logger Plugin: Writes system monitoring information to a.txt file.
-	- REST API Plugin: Transmits system monitoring information as JSON over HTTP POST to a configurable endpoint.
+---
 
-Configuration:
-	- Configurable options through appsettings.json.
+## 🧪 Getting Started
 
-Cross-Platform:
-	- Supports Windows with cross-platform compatibility (Linux/macOS) planned.
+### Prerequisites
+- [.NET 6 SDK or later](https://dotnet.microsoft.com/en-us/download)
 
-Console-Based:
-	- Prints live system monitoring information to the console window.
+## 📦 Dependencies
+This project requires the following NuGet packages.
 
-# Project Structure
-
+```bash
+dotnet add package Microsoft.Extensions.Configuration --version 9.0.4
+dotnet add package Microsoft.Extensions.Configuration.Binder --version 9.0.4
+dotnet add package Microsoft.Extensions.Configuration.Json --version 9.0.4
+dotnet add package Microsoft.Extensions.DependencyInjection --version 9.0.4
+dotnet add package Microsoft.Extensions.Options --version 9.0.4
+dotnet add package Microsoft.VisualBasic --version 10.3.0
+dotnet add package System.Diagnostics.PerformanceCounter --version 9.0.4
+dotnet add package System.Management --version 9.0.4
+```
+## 📁 Project Structure
+```bash
 SystemMonitoring/
-├── Domain/             # Core interfaces and models for the system.
-├── Infrastructure/     # Implementations for fetching system metrics.
-├── Plugins/              # Plugin directory (file logger, API plugin).
-├── Program.cs          # Entry point of the application.
-├── appsettings.json    # Configuration file.
-└── README.md        # Project documentation.
+├── Domain/             # Core interfaces and domain models
+├── Infrastructure/     # System metrics logic
+├── Plugins/            # File logger and REST API plugin
+├── Program.cs          # Application entry point
+├── appsettings.json    # App configuration
+└── README.md           # Project documentation
+```
+### Running the App
 
-# Notes
-
-Windows Support: CPU usage monitoring is implemented for Windows and linux through .NET APIs.
-Extensibility: Designed to be readily extendible to macOS system monitoring.
-Plugin System: Easily add new monitoring methods or logging mechanisms by implementing plugins without affecting core functionality.
-
+```bash
+git clone https://github.com/Raguram97/SystemMonitorApp.git
+cd SystemMonitoring
+dotnet build
+dotnet run
+```
